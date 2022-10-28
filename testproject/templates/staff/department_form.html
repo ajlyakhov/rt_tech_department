@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% if object %}
+<form action="{% url 'department-delete' object.id %}" method="post">
+    {% csrf_token %}
+	<input type="submit" value="Delete">
+</form>
+{% endif %}
+
+<h2>Список департаментов</h2>
+<ul>
+	{% for dep in department_list %}
+	<li><a href="{% url 'department-detail' dep.id %}">{{ dep.name }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock content %}

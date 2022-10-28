@@ -1,0 +1,16 @@
+<html>
+	<head>
+	</head>
+
+	<body>
+		<p>
+		<a href="{% url 'department' %}">Департаменты</a>
+		</p>
+		<p>
+		<a href="{% url 'employee' %}">Сoтрудники</a>
+		</p>
+
+		{% block content %}
+		{% endblock content %}
+	</body>
+</html>

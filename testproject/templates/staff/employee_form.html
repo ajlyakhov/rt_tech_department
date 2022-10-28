@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <input type="submit" value="Delete">
+</form>
+{% if object %}
+<form action="{% url 'employee-delete' object.id %}" method="post">
+    {% csrf_token %}
+    {{ form.pk }}
+    <input type="submit" value="Delete">
+</form>
+{% endif %}
+
+<h2>Список сотрудников</h2>
+<ul>
+	{% for emp in employee_list %}
+	<li><a href="{% url 'employee-detail' emp.id %}">{{ emp.name }} {{ emp.surname }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock content %}
+

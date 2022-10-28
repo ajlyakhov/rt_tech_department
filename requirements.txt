@@ -1,0 +1,7 @@
+Django==3.2
+django_filter
+drf-yasg
+django-utils-six
+Pillow
+djangorestframework
+pyyaml
